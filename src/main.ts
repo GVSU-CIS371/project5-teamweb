@@ -17,6 +17,7 @@ const vuetify = createVuetify({
     aliases,
     sets: { mdi, fa },
   },
+  
 
   components,
   directives,
