@@ -23,7 +23,7 @@
 <script lang="ts" setup>
 import { computed, reactive } from "vue";
 import { useProductStore } from "../stores/ProductStore";
-import StoreItem from "./storeitem.vue"; // Import the reusable component
+import StoreItem from "../components/StoreItem.vue"; // Import the reusable component
 
 const productStore = useProductStore();
 productStore.init();
