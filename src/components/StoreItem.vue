@@ -184,25 +184,14 @@
 import { ref } from "vue";
 import { getFirestore, doc, deleteDoc, updateDoc } from "firebase/firestore"; // Firestore imports
 import { useRouter } from "vue-router";
+import { defineProps } from 'vue';
+import { ProductDoc } from '../types/product';
 
-interface Product {
-  id: string;
-  data: {
-    image: string;
-    name: string;
-    category: string;
-    price: number;
-    rating: number;
-    description: string;
-    stock: number;
-  };
-}
-
-const props = defineProps({
-  product: Object as () => Product,
-  expandedProducts: Object as () => { [key: string]: boolean },
-  toggleExpanded: Function,
-});
+const props = defineProps<{
+  product: ProductDoc;
+  expandedProducts: { [key: string]: boolean };
+  toggleExpanded: (id: string) => void;
+}>();
 
 const categories = ["Electronics", "Clothing", "Groceries", "Best Seller"]; // Example categories
 let isEditing = ref(false); // Flag for edit mode
